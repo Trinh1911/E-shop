@@ -1,9 +1,11 @@
 import { React, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import classNames from "classnames/bind";
 import styles from "./SignUp.module.scss";
+import { sever } from "../../Sever";
 const cx = classNames.bind(styles);
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -11,8 +13,21 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
-  const handleSubmit = () => {
-    console.log("#fff");
+  const handleSubmit = async (e) => {
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const newForm = new FormData();
+    newForm.append("file", avatar);
+    newForm.append("name", name);
+    newForm.append("email", email);
+    newForm.append("password", password);
+    axios
+      .post(`${sever}/user/create-user`, newForm, config)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -25,7 +40,7 @@ const SignUp = () => {
       </div>
       <div className={cx("container-form")}>
         <div className={cx("inner-form")}>
-          <form className={cx("form")}>
+          <form className={cx("form")} onSubmit={handleSubmit}>
             <div>
               <label className={cx("label-login")} htmlFor="email">
                 Fullname
@@ -92,7 +107,7 @@ const SignUp = () => {
             </div>
             <label htmlFor="avatar" className={cx("avatar")}>
               <div className={cx("wrap-up")}>
-                <span >
+                <span>
                   {avatar ? (
                     <img
                       src={URL.createObjectURL(avatar)}
