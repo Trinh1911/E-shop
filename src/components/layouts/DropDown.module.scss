@@ -1,0 +1,39 @@
+.dropdown {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 270px;
+  margin-bottom: 1.6rem;
+  padding: 16px 8px;
+  background-color: var(--base-background);
+  z-index: 30;
+  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  box-shadow: var(--box-shadown);
+  border-radius: 8px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.product {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-left: 1rem;
+  user-select: none;
+}
+.name {
+  cursor: pointer;
+  user-select: none;
+  margin: 1.2rem;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--search-text-color);
+}
