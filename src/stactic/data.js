@@ -226,10 +226,10 @@ export const navItems = [
     },
     {
       id: 6,
-      title: "Gifts",
+      title: "Bags",
       subTitle: "",
       image_Url:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+        "https://down-vn.img.susercontent.com/file/fa6ada2555e8e51f369718bbc92ccc52_tn",
     },
     {
       id: 7,
@@ -253,10 +253,24 @@ export const navItems = [
     },
     {
       id: 10,
-      title: "Others",
+      title: "Book",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+        "https://down-vn.img.susercontent.com/file/36013311815c55d303b0e6c62d6a8139_tn",
+    },
+    {
+      id: 11,
+      title: "Sport and travel",
+      subTitle: "",
+      image_Url:
+        "https://down-vn.img.susercontent.com/file/6cb7e633f8b63757463b676bd19a50e4_tn",
+    },
+    {
+      id: 12,
+      title: "Health",
+      subTitle: "",
+      image_Url:
+        "https://down-vn.img.susercontent.com/file/49119e891a44fa135f5f6f5fd4cfc747_tn",
     },
   ];
   
