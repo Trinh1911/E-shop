@@ -28,7 +28,7 @@ const Header = ({ activeHeading }) => {
     setSearchData(filteredProducts);
   };
   window.addEventListener("scroll", () => {
-    if (window.screenY > 70) {
+    if (window.scrollY > 70) {
       setActive(true);
     } else {
       setActive(false);
@@ -98,6 +98,7 @@ const Header = ({ activeHeading }) => {
           `${active === true ? "header-scroll" : null}`
         )}
       >
+        {/* categories */}
         <div
           className={cx("categories")}
           onClick={() => setDropDown(!dropDown)}

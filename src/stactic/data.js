@@ -293,7 +293,7 @@ export const navItems = [
         },
       ],
       shop: {
-        name: "Apple inc.",
+        name: "Apple inc",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",

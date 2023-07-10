@@ -1,0 +1,33 @@
+.section {
+  background-color: var(--base-background);
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.wrap {
+  position: relative;
+  width: 900px;
+  min-height: 200px;
+  max-width: calc(100% - 32px);
+  margin: 0 auto;
+  overflow-y: scroll;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadown);
+  background: #fff;
+}
+.icon-close {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 30px;
+    right: 30px;
+}
