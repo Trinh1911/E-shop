@@ -3,10 +3,6 @@
 }
 .product-item {
   position: relative;
-  transition: transform 0.3s ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-  }
   img {
     display: block;
     width: 155px;
