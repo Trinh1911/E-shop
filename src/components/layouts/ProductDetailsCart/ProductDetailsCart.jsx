@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
-import { AiOutlineMessage } from "react-icons/ai";
+import {
+  AiOutlineMessage,
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import classNames from "classnames/bind";
 import styles from "./ProductDetailsCart.module.scss";
 const cx = classNames.bind(styles);
@@ -8,6 +13,14 @@ const ProductDetailsCart = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
   const handleMessageSubmit = () => {};
+  const decrementCount = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
   const percent = ((data.discount_price * 100) / data.price).toFixed(2);
   return (
     <>
@@ -50,10 +63,31 @@ const ProductDetailsCart = ({ setOpen, data }) => {
                     <h1 className={cx("heading")}>{data.name}</h1>
                     <p>{data.description}</p>
                   </div>
-                  <div className={cx('price')}>
-                    <div className={cx('current-price')}>{data.discount_price}$</div>
-                    <div className={cx('total-price')}>{data.price ? data.price + "$" : null}</div>
-                    <span className={cx('discount-rate')}>{data.price ? "-" + percent + "%" : null}</span>
+                  <div className={cx("price")}>
+                    <div className={cx("current-price")}>
+                      {data.discount_price}$
+                    </div>
+                    <div className={cx("total-price")}>
+                      {data.price ? data.price + "$" : null}
+                    </div>
+                    <span className={cx("discount-rate")}>
+                      {data.price ? "-" + percent + "%" : null}
+                    </span>
+                  </div>
+                  <div className={cx("quantity")}>
+                    <AiOutlineMinus
+                      className={cx("icon-quantity")}
+                      onClick={decrementCount}
+                    />
+                    <span>{count}</span>
+                    <AiOutlinePlus
+                      className={cx("icon-quantity")}
+                      onClick={incrementCount}
+                    />
+                  </div>
+                  <div className={cx("add-cart")}>
+                    <AiOutlineShoppingCart className={cx("icon-cart")} /> Add to
+                    cart
                   </div>
                 </div>
               </div>
