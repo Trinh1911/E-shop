@@ -33,7 +33,7 @@ const Categories = () => {
                     <div
                       className={cx("category-item")}
                       key={i.id}
-                      onClick={() => handleSubmit}
+                      onClick={() => handleSubmit(i)}
                     >
                       <img src={i.image_Url}></img>
                       <h5>{i.title}</h5>

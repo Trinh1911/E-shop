@@ -3,7 +3,11 @@ import { AiFillFacebook, AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from "./Footer.module.scss";
-import { footerProductLinks } from "../../../stactic/data";
+import {
+  footerProductLinks,
+  footercompanyLinks,
+  footerSupportLinks,
+} from "../../../stactic/data";
 const cx = classNames.bind(styles);
 const Footer = () => {
   return (
@@ -42,9 +46,34 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className={cx("col", "c-3")}></div>
-          <div className={cx("col", "c-3")}></div>
+          <div className={cx("col", "c-3")}>
+            <ul className={cx("footer-list")}>
+              <h1>Shop</h1>
+              {footercompanyLinks.map((link) => (
+                <li key={link.name}>
+                  <Link className={cx("item")} to={link.link}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={cx("col", "c-3")}>
+            <ul className={cx("footer-list")}>
+              <h1>Support</h1>
+              {footerSupportLinks.map((link) => (
+                <li key={link.name}>
+                  <Link className={cx("item")} to={link.link}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+      </div>
+      <div className={cx("grid", "wide", "info")}>
+        <span>© 2023 - Bản quyền của TBM</span>
       </div>
     </div>
   );

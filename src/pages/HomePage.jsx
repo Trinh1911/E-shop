@@ -9,7 +9,7 @@ import Footer from "../components/layouts/Footer/Footer.jsx";
 const HomePage = () => {
   return (
     <div>
-      <Header activeHeading={2} />
+      <Header activeHeading={1} />
       <Slider/>
       <Categories/>
       <BestDeals/>
