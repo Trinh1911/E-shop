@@ -1,0 +1,121 @@
+// luoi
+.grid {
+  width: 100%;
+  padding: 0;
+}
+
+.grid.wide {
+  max-width: 91.666667%;
+  margin: 1rem auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.row.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.row.no-gutters .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+.c-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+//
+.section {
+  background-color: var(--case-first-background);
+  color: var(--text-color-primary);
+  padding: 10px 0;
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.8rem 1.6rem;
+  }
+  .container {
+    margin-bottom: 0;
+  }
+}
+.heading {
+  color: var(--search-text-color);
+  font-size: 3rem;
+  line-height: 3.6rem;
+  span {
+    color: #6aca84;
+    line-height: 1.5;
+  }
+}
+.Subcribe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  input {
+    width: 100%;
+    color: rgb(55 65 81);
+    padding: 1rem 0.8rem;
+    border-radius: var(--border-radius);
+    border: none;
+    margin-right: 10px;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    background-color: #6aca84;
+    animation-duration: 300ms;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    &:hover {
+      background-color: rgb(20 184 166);
+    }
+  }
+}
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 1.6rem;
+  img {
+    width: 57px;
+    height: 40px;
+  }
+  p {
+    padding: 1rem 0;
+  }
+  .social {
+    display: flex;
+    .icon-social {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      margin-right: 1.5rem;
+    }
+  }
+}
+.footer-list {
+    text-align:left;
+    list-style-type: none;
+  .item {
+    font-size: 1.6rem;
+    margin: 2px 0;
+    color: var(--search-text-color);
+    text-decoration: none;
+    &:hover {
+        color: #6aca84;
+    }
+  }
+}

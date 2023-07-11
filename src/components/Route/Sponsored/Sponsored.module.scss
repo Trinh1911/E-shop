@@ -1,0 +1,49 @@
+// grid
+.grid {
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.grid.wide {
+  max-width: 91.666667%;
+  margin: 1rem auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.row.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.row.no-gutters .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+.c-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.section {
+  background-color: var(--base-background);
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+.img {
+  display: block;
+  width: 150px;
+  height: 125px;
+  margin: 20px auto;
+  object-fit: contain;
+}

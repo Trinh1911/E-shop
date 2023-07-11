@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { productData } from "../../../stactic/data";
 import ProductCart from "../../layouts/ProductCart/ProductCart";
+import CountDown from "../../layouts/CountDown/CountDown.jsx"
 import classNames from "classnames/bind";
 import styles from "./BestDeals.module.scss";
 const cx = classNames.bind(styles);
@@ -16,6 +17,7 @@ const BestDeals = () => {
     <div className={cx("section", "grid", "wide")}>
       <div className={cx("heading")}>
         <h1>Good Price Today</h1>
+        <CountDown/>
       </div>
       <div className={cx("home-deal", "row")}>
         {data &&

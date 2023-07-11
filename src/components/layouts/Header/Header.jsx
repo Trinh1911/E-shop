@@ -8,9 +8,9 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import { categoriesData, productData } from "../../stactic/data";
-import DropDown from "./DropDown";
-import Navbar from "./Navbar";
+import { categoriesData, productData } from "../../../stactic/data";
+import DropDown from "../DropDown/DropDown"
+import Navbar from "../Navbar/Navbar";
 // import Image from '../../Assets/image'
 const cx = classNames.bind(styles);
 const Header = ({ activeHeading }) => {
