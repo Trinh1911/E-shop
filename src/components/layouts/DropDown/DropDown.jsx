@@ -13,13 +13,13 @@ const DropDown = ({ categoriesData, setDropDown }) => {
   return (
     <div className={cx("dropdown")}>
       {categoriesData &&
-        categoriesData.map((i) => (
-          <div className={cx('product')}>
-            <div
-              className={cx("wrapper")}
-              key={i.id}
-              onClick={() => submitHandle(i)}
-            />
+        categoriesData.map((i, index) => (
+          <div
+            className={cx("product")}
+            onClick={() => submitHandle(i)}
+            key={index}
+          >
+            <div className={cx("wrapper")} />
             <img src={i.image_Url} className={cx("image")} alt="" />
             <h3 className={cx("name")}>{i.title}</h3>
           </div>

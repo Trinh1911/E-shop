@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import Header from "../components/layouts/Header/Header";
-import { productData } from "../stactic/data";
-import ProductCart from "../components/layouts/ProductCart/ProductCart";
-
+import Header from "../../components/layouts/Header/Header";
+import { productData } from "../../stactic/data";
+import ProductCart from "../../components/layouts/ProductCart/ProductCart";
+import classNames from "classnames/bind";
+import styles from "./ProductsPage.module.scss";
+const cx = classNames.bind(styles);
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
   const categoryData = searchParams.get("category");
@@ -23,9 +25,9 @@ const ProductsPage = () => {
   return (
     <div>
       <Header activeHeading={3} />
-      <div>
-        {data && data.map((i, index) => <ProductCart data={i} key={index} />)}
-        {data && data.length === 0 ? <h1></h1> : null}
+      <div className={cx("grid", "wide", "section")}>
+        <div className={cx('row')}>{data && data.map((i, index) => <ProductCart data={i} key={index} />)}</div>
+        <div className={cx('not-found')}>{data && data.length === 0 ? <h1> No products Found!</h1> : null}</div>
       </div>
     </div>
   );
