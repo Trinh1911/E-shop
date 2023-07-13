@@ -1,0 +1,121 @@
+.section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  overflow-y: scroll;
+  box-shadow: var(--box-shadown);
+  background: #fff;
+}
+.wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 60px 70px 250px;
+}
+.icon-close {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  padding: 5px;
+}
+.heading {
+  display: flex;
+  align-items: center;
+}
+.icon-bag {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.heading-text {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin: 3px 0 0 16px;
+  font-weight: 500;
+}
+.container {
+  margin-top: 4rem;
+}
+.item {
+  position: relative;
+  display: flex;
+  border-bottom: 1px dotted #bcbcbc;
+  padding: 5px 0;
+}
+.item-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+}
+.img-item {
+  width: 85px;
+  border: 1px solid #ededed;
+  margin-right: 10px;
+  max-width: none;
+}
+.item-title {
+  h2 {
+    float: left;
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  transform: translateX(-70px);
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+.value {
+  height: 20px;
+  width: 20px;
+  margin: 0 10px;
+  color: var(--search-text-color);
+  font-size: 2rem;
+  text-align: center;
+  user-select: none;
+}
+.quantity-icon {
+  height: 25px;
+  width: 25px;
+  padding: 2px;
+  background-color: var(--base-background);
+  border: var(--border);
+  place-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(236, 236, 236);
+  }
+}
+
+.price {
+  margin-left: 20px;
+  font-size: 1.6rem;
+}
+.close-item {
+  position: absolute;
+  top: 11px;
+  right: -24px;
+}

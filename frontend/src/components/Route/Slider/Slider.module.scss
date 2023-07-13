@@ -1,0 +1,46 @@
+.section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-image: url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg);
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: 91.666667%;
+  text-decoration: none;
+  margin: auto;
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: #3d3a3a;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  p {
+    padding-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #000000ba;
+  }
+  .button {
+    width: 124px;
+    height: 35px;
+    padding: 5px;
+    margin-top: 16px;
+    border-radius: 4px;
+    line-height: 1.6;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    background: rgb(255, 66, 78);
+    color: white;
+    cursor: pointer;
+  }
+}
+.tdn {
+  text-decoration: none;
+}
