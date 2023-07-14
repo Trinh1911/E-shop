@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
 import { BsHandbag } from "react-icons/bs";
-import { HiPlus, HiOutlineMinus } from "react-icons/hi";
+import {BsCartPlus} from "react-icons/bs"
 import classNames from "classnames/bind";
-import styles from "./Cart.module.scss";
+import styles from "./Wishlist.module.scss";
+import { AiOutlineHeart } from "react-icons/ai";
 const cx = classNames.bind(styles);
-const Cart = ({ setOpen }) => {
+const Wishlist = ({ setOpenWishlist }) => {
   const cartData = [
     {
       name: "Kem Chống Nắng Kiểm Soát Nhờn Không Màu La Roche-Posay Anthelios Xl Spf50+ Uvb & Uva 50Ml",
@@ -30,22 +31,17 @@ const Cart = ({ setOpen }) => {
         <div className={cx("wrap")}>
           <RxCross1
             className={cx("icon-close")}
-            onClick={() => setOpen(false)}
+            onClick={() => setOpenWishlist(false)}
           />
           <div className={cx("list-item")}>
             <div className={cx("heading")}>
-              <BsHandbag className={cx("icon-bag")} />
+              <AiOutlineHeart className={cx("icon-heart")} />
               <h5 className={cx("heading-text")}>3 items</h5>
             </div>
             <div className={cx("container")}>
               {cartData &&
                 cartData.map((i, index) => <CartSingle key={index} data={i} />)}
             </div>
-          </div>
-          <div className={cx("total")}>
-            <Link to="/checkout" className={cx("checkout")}>
-              Checkout Now
-            </Link>
           </div>
         </div>
       </div>
@@ -68,24 +64,11 @@ const CartSingle = ({ data }) => {
         <div className={cx("item-title")}>
           <h2>{data.name}</h2>
         </div>
-        <div className={cx("quantity")}>
-          <>
-            <HiOutlineMinus
-              className={cx("quantity-icon")}
-              onClick={() => setValue(value === 1 ? 1 : value - 1)}
-            />
-            <span className={cx("value")}>{value}</span>
-            <HiPlus
-              className={cx("quantity-icon")}
-              onClick={() => setValue(value + 1)}
-            />
-          </>
-          <div className={cx("price")}>{totalPrice}</div>
-        </div>
         <RxCross1 className={cx("close-item")} />
+        <BsCartPlus className={cx('icon-cart')}/>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default Wishlist;

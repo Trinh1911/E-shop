@@ -12,6 +12,7 @@ import { categoriesData, productData } from "../../../stactic/data";
 import DropDown from "../DropDown/DropDown";
 import Navbar from "../Navbar/Navbar";
 import Cart from "../cart/Cart.jsx";
+import Wishlist from "../Wishlist/Wishlist.jsx"
 // import Image from '../../Assets/image'
 const cx = classNames.bind(styles);
 const Header = ({ activeHeading }) => {
@@ -20,6 +21,7 @@ const Header = ({ activeHeading }) => {
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openWishlist, setOpenWishlist] = useState(false)
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -118,7 +120,7 @@ const Header = ({ activeHeading }) => {
         </div>
         <div className={cx("user-using")}>
           {/* favorite store */}
-          <div className={cx("favorite")}>
+          <div className={cx("favorite")} onClick={()=>setOpenWishlist(!openWishlist)}>
             <AiOutlineHeart className={cx("icon")} />
             <span className={cx("Item-icon")}>0</span>
           </div>
@@ -136,6 +138,12 @@ const Header = ({ activeHeading }) => {
         </div>
         {/* Cart popup */}
         {open ? <Cart setOpen={setOpen} /> : null}
+        {/* wishlist popup */}
+        {
+          openWishlist ? (
+            <Wishlist setOpenWishlist={setOpenWishlist}/>
+          ):null
+        }
       </div>
     </div>
   );
