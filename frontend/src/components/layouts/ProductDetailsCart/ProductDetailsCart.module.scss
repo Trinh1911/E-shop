@@ -36,6 +36,7 @@
 .container {
   display: flex;
   width: 100%;
+  padding: 20px;
 }
 .content {
   display: flex;
@@ -44,7 +45,7 @@
   width: 50%;
   padding: 10px;
   .img {
-    width:344px;
+    width: 344px;
     height: 344px;
   }
   .user-shop {
@@ -109,7 +110,7 @@
     text-align: justify;
   }
   p {
-    height: 242px;
+    height: 290px;
     font-size: 1.6rem;
     padding: 10px 0;
     text-align: justify;
@@ -151,7 +152,7 @@
       color: var(--search-text-color);
       font-size: 2.4rem;
       text-align: center;
-      user-select: none ;
+      user-select: none;
     }
     .icon-quantity {
       height: 30px;
@@ -187,9 +188,10 @@
     border-radius: var(--border-radius);
     cursor: pointer;
     outline: none;
-}
-.icon-cart {
-  font-size: 20px;
-  margin-right: 10px;
-}
+    user-select: none;
+  }
+  .icon-cart {
+    font-size: 20px;
+    margin-right: 10px;
+  }
 }

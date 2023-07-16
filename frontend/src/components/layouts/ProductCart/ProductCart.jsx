@@ -18,7 +18,7 @@ const ProductCart = ({ data }) => {
   const product_name = d.replace(/\s+/g, "-");
   const percent = ((data.discount_price * 100) / data.price).toFixed(2);
   return (
-    <div className={cx("col", "c-2", "m-3", "l-6", "product-item")}>
+    <div className={cx("col","l-2", "product-item")}>
       <Link to={`/product/${product_name}`}>
         <img src={data.image_Url[0].url}></img>
       </Link>

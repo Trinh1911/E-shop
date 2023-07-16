@@ -1,123 +1,3 @@
-.td {
-  text-decoration: none;
-}
-.product-item {
-  position: relative;
-  margin-top: 1.5rem;
-  img {
-    display: block;
-    width: 155px;
-    height: 155px;
-    margin: 0 auto;
-  }
-  h5 {
-    padding-top: 8px;
-    font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 150%;
-    color: var(--search-text-color);
-  }
-  h4 {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    height: 2.2rem;
-    margin-top: 8px;
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 150%;
-    color: var(--search-text-color);
-  }
-  .product-action {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.6rem;
-    margin-left: 5px;
-    margin-right: 10px;
-    margin-top: 5px;
-    padding-right: 20px;
-  }
-  .product-like {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .product-rating {
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 150%;
-    color: rgb(128, 128, 137);
-  }
-  .icon-start {
-    color: var(--color-start);
-  }
-  .product-sold {
-    color: rgb(255 66 78);
-    font-weight: 500;
-    font-size: 1.6rem;
-  }
-  .product-price {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.8rem;
-    color: rgb(255 66 78);
-    text-align: right;
-    font-weight: 400;
-    margin-left: 5px;
-    padding-right: 20px;
-    del {
-      margin-right: 12px;
-    }
-    span {
-      padding: 0px 2px;
-      line-height: 16px;
-      font-size: 12px;
-      font-weight: 500;
-      margin-left: 4px;
-      color: rgb(255, 66, 78);
-      margin-top: 3px;
-    }
-  }
-}
-.icon-like {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  cursor: pointer;
-}
-.active {
-  color: red;
-}
-.normal {
-  color: #333;
-}
-.icon-eyes {
-  position: absolute;
-  right: 0;
-  top: 30px;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  color: #333;
-  cursor: pointer;
-}
-.icon-cart {
-  position: absolute;
-  right: 0;
-  top: 60px;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  color: #444;
-  cursor: pointer;
-}
-// grid
 .grid {
   width: 100%;
   display: block;
@@ -311,4 +191,11 @@
   .l-o-11 {
     margin-left: 91.66667%;
   }
+}
+.section {
+    padding: 2rem 0;
+}
+.heading {
+  font-size: 2.5rem;
+  font-weight: 500;
 }
