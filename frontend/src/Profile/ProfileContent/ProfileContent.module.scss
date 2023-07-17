@@ -1,0 +1,51 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.user {
+    position: relative;
+}
+.avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 150%;
+}
+.icon-camera {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    background-color: #E3E9EE;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+.contact {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.contact-form {
+    width: 50%;
+    input {
+        width: 50%;
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-left: 10px;
+        padding: 2px;
+        color: var(--search-text-color);
+        outline: none;
+        border: 1px solid #ccc;
+    }
+}

@@ -1,0 +1,23 @@
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  box-shadow: var(--box-shadown);
+  padding: 2rem;
+  background-color: var(--base-background);
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-top: 2px;
+  cursor: pointer;
+  .icon-profile {
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+  }
+}
+.active {
+  color: red;
+}
