@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { server } from "../../Server.js";
+import { toast } from "react-toastify";
 import { RxPerson } from "react-icons/rx";
-import { AiOutlineMessage, AiOutlineCreditCard, AiOutlineLogin } from "react-icons/ai";
+import {
+  AiOutlineMessage,
+  AiOutlineCreditCard,
+  AiOutlineLogin,
+} from "react-icons/ai";
 import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
 import { TbAddressBook } from "react-icons/tb";
 import { MdOutlineTrackChanges } from "react-icons/md";
@@ -10,6 +17,18 @@ import styles from "./ProfileSidebar.module.scss";
 const cx = classNames.bind(styles);
 const ProfileSidebar = ({ active, setActive }) => {
   const navigate = useNavigate();
+  const logoutHandler = () => {
+    axios
+      .get(`${server}/api/v2/user/logout`)
+      .then((res) => {
+        toast.success(res.data.message);
+        navigate("/login");
+        window.location.reload(true);
+      })
+      .catch((error) => {
+        console.log(error.reponse.data.message);
+      });
+  };
   return (
     <div className={cx("profile-sidebar")}>
       <div className={cx("wrap")} onClick={() => setActive(1)}>
@@ -30,7 +49,9 @@ const ProfileSidebar = ({ active, setActive }) => {
         />
         <span className={cx(`${active === 3 ? "active" : ""}`)}>Refunds</span>
       </div>
-      <div className={cx("wrap")} onClick={() => setActive(4) || navigate("/inbox")}
+      <div
+        className={cx("wrap")}
+        onClick={() => setActive(4) || navigate("/inbox")}
       >
         <AiOutlineMessage
           className={cx("icon-profile", `${active === 4 ? "active" : ""}`)}
@@ -57,17 +78,16 @@ const ProfileSidebar = ({ active, setActive }) => {
         <TbAddressBook
           className={cx("icon-profile", `${active === 7 ? "active" : ""}`)}
         />
-        <span className={cx(`${active === 7 ? "active" : ""}`)}>
-          Address
-        </span>
+        <span className={cx(`${active === 7 ? "active" : ""}`)}>Address</span>
       </div>
-      <div className={cx("wrap")} onClick={() => setActive(8)}>
+      <div
+        className={cx("wrap")}
+        onClick={() => setActive(8) || logoutHandler()}
+      >
         <AiOutlineLogin
           className={cx("icon-profile", `${active === 8 ? "active" : ""}`)}
         />
-        <span className={cx(`${active === 8 ? "active" : ""}`)}>
-          Address
-        </span>
+        <span className={cx(`${active === 8 ? "active" : ""}`)}>Log out</span>
       </div>
     </div>
   );

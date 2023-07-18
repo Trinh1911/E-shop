@@ -12,16 +12,28 @@ import { categoriesData, productData } from "../../../stactic/data";
 import DropDown from "../DropDown/DropDown";
 import Navbar from "../Navbar/Navbar";
 import Cart from "../cart/Cart.jsx";
-import Wishlist from "../Wishlist/Wishlist.jsx"
+import Wishlist from "../Wishlist/Wishlist.jsx";
 // import Image from '../../Assets/image'
 const cx = classNames.bind(styles);
-const Header = ({ activeHeading }) => {
+const NavHeaders = [
+  {
+    icon: <GoHome/>,
+    title: "Home",
+    url: "/",
+  },
+  {
+    icon: <MdOutlineInsertEmoticon/>,
+    title: "Becom Seller",
+    url: "/shop-create",
+  },
+];
+const Header = ({ activeHeading, activeIconHeader }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [open, setOpen] = useState(false);
-  const [openWishlist, setOpenWishlist] = useState(false)
+  const [openWishlist, setOpenWishlist] = useState(false);
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -86,14 +98,36 @@ const Header = ({ activeHeading }) => {
             </div>
           ) : null}
         </div>
-        <Link to="/" className={cx("link-provide")}>
+        <div className={cx("nav-user")}>
+          {NavHeaders &&
+            NavHeaders.map((i, index) => (
+              <Link
+                to={i.url}
+                className={cx(
+                  `${activeIconHeader === index + 1 ? "header-nav-active" : "header-nav-normal"}`,
+                  "link-provide"
+                )}
+              >
+                <div className={cx(`${activeIconHeader === index + 1 ? "header-nav-active" : "header-nav-normal"}`)}>{i.icon}</div>
+                {/* <GoHome className={cx("provide-icon")} /> */}
+                <h2>{i.title}</h2>
+              </Link>
+            ))}
+        </div>
+        {/* <Link
+          to="/"
+          className={cx(
+            `${activeIconHeader === index + 1 ? "active" : "normal"}`,
+            "link-provide"
+          )}
+        >
           <GoHome className={cx("provide-icon")} />
           <h2>Home</h2>
         </Link>
-        <Link to="/seller" className={cx("link-provide")}>
+        <Link to="/shop-create" className={cx("link-provide")}>
           <MdOutlineInsertEmoticon className={cx("provide-icon")} />
           <h2>Becom Seller</h2>
-        </Link>
+        </Link> */}
       </div>
       {/* category */}
       <div
@@ -120,7 +154,10 @@ const Header = ({ activeHeading }) => {
         </div>
         <div className={cx("user-using")}>
           {/* favorite store */}
-          <div className={cx("favorite")} onClick={()=>setOpenWishlist(!openWishlist)}>
+          <div
+            className={cx("favorite")}
+            onClick={() => setOpenWishlist(!openWishlist)}
+          >
             <AiOutlineHeart className={cx("icon")} />
             <span className={cx("Item-icon")}>0</span>
           </div>
@@ -139,11 +176,7 @@ const Header = ({ activeHeading }) => {
         {/* Cart popup */}
         {open ? <Cart setOpen={setOpen} /> : null}
         {/* wishlist popup */}
-        {
-          openWishlist ? (
-            <Wishlist setOpenWishlist={setOpenWishlist}/>
-          ):null
-        }
+        {openWishlist ? <Wishlist setOpenWishlist={setOpenWishlist} /> : null}
       </div>
     </div>
   );

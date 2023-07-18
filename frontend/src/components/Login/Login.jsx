@@ -5,9 +5,9 @@ import classNames from "classnames/bind";
 import styles from "./Login.module.scss";
 const cx = classNames.bind(styles);
 const Login = () => {
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Visible, setVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
   return (
     <div className={cx("container")}>
       <div className={cx("inner")}>
@@ -27,7 +27,7 @@ const Login = () => {
                   name="email"
                   autoComplete="email"
                   required
-                  value={Email}
+                  value={email}
                   placeholder="Type email address"
                   onChange={(e) => setEmail(e.target.value)}
                 ></input>
@@ -40,15 +40,15 @@ const Login = () => {
               <div className={cx("form-login")}>
                 <input
                   className={cx("input-login")}
-                  type={Visible ? "text" : "password"}
+                  type={visible ? "text" : "password"}
                   name="password"
                   autoComplete="current-password"
                   required
-                  value={Password}
+                  value={password}
                   placeholder="Type your password"
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>
-                {Visible ? (
+                {visible ? (
                   <AiOutlineEye
                     size={25}
                     className={cx("icon-eyes")}

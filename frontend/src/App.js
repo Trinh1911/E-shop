@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { LoginPage, SignUpPage, HomePage, ProductsPage, BestSellingPage, OderSuccessPage, ProductsDetailsPage, ProfilePage } from "./Routes.js"
+import { LoginPage, SignUpPage, HomePage, ProductsPage, BestSellingPage, OderSuccessPage, ProductsDetailsPage, ProfilePage, ShopCreatePage } from "./Routes.js"
 const App = () => {
     return (
         <BrowserRouter>
@@ -13,6 +13,7 @@ const App = () => {
                 <Route path="/product/:name" element={<ProductsDetailsPage />} />
                 <Route path="/best-selling" element={<BestSellingPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/shop-create" element={<ShopCreatePage />} />
             </Routes>
         </BrowserRouter>
     )

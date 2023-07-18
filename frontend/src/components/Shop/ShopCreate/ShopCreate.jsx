@@ -1,65 +1,44 @@
 import { React, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { RxAvatar } from "react-icons/rx";
 import classNames from "classnames/bind";
-import styles from "./SignUp.module.scss";
-import { server } from "../../Server";
+import styles from "./ShopCreate.module.scss";
 const cx = classNames.bind(styles);
-const SignUp = () => {
-  const [name, setName] = useState("");
+const ShopCreate = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState();
+  const [phoneNumber, setphoneNumber] = useState();
+  const [avtatar, setAvatar] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
-  const [avatar, setAvatar] = useState(null);
-  const handleSubmit = async (e) => {
-    const config = { headers: { "Content-Type": "multipart/form-data" } };
-    const newForm = new FormData();
-    newForm.append("file", avatar);
-    newForm.append("name", name);
-    newForm.append("email", email);
-    newForm.append("password", password);
-    axios
-      .post(`${server}/user/create-user`, newForm, config)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    setAvatar(file);
-  };
   return (
     <div className={cx("container")}>
       <div className={cx("inner")}>
-        <h2 className={cx("header")}>Register as a new user</h2>
+        <h2 className={cx("header")}>Resgister as a seller</h2>
       </div>
       <div className={cx("container-form")}>
         <div className={cx("inner-form")}>
-          <form className={cx("form")} onSubmit={handleSubmit}>
-            <div>
-              <label className={cx("label-login")} htmlFor="email">
-                Fullname
+          <form className={cx("form")}>
+          <div>
+              <label className={cx("label-login")} htmlFor="name">
+                Shop Name
               </label>
               <div className={cx("form-login")}>
                 <input
                   className={cx("input-login")}
-                  type="text"
-                  name="text"
-                  autoComplete="text"
+                  type="name"
+                  name="name"
                   required
                   value={name}
-                  placeholder="Type My name"
                   onChange={(e) => setName(e.target.value)}
                 ></input>
               </div>
             </div>
-            <div className={cx("mt-10")}>
+            <div>
               <label className={cx("label-login")} htmlFor="email">
-                Email
+                Email address
               </label>
               <div className={cx("form-login")}>
                 <input
@@ -76,7 +55,7 @@ const SignUp = () => {
             </div>
             <div className={cx("mt-10")}>
               <label className={cx("label-login")} htmlFor="password">
-                Password
+                Type your password
               </label>
               <div className={cx("form-login")}>
                 <input
@@ -104,32 +83,6 @@ const SignUp = () => {
                 )}
               </div>
             </div>
-            <label htmlFor="avatar" className={cx("avatar")}>
-              <div className={cx("wrap-up")}>
-                <span>
-                  {avatar ? (
-                    <img
-                      src={URL.createObjectURL(avatar)}
-                      alt="avatar"
-                      className={cx("img-avatar")}
-                    />
-                  ) : (
-                    <RxAvatar className={cx("avatar-icon")} />
-                  )}
-                </span>
-                <label htmlFor="input-file" className={cx("input-file")}>
-                  <span>Up load file</span>
-                  <input
-                    type="file"
-                    name="avatar"
-                    id="input-file"
-                    accept=".png,.jpeg,.jpg"
-                    onChange={handleFileInputChange}
-                    className={cx("input-file-avatar")}
-                  />
-                </label>
-              </div>
-            </label>
             <div className={cx("form-submit")}>
               <div className={cx("memorize")}>
                 <input
@@ -142,7 +95,14 @@ const SignUp = () => {
                   Remember me
                 </label>
               </div>
+              <a className={cx("forgot")} href="#">
+                Forgot on me
+              </a>
               <button className={cx("btn-large")}>Submit</button>
+            </div>
+            <div className={cx("sign-up")}>
+              <h4>Not have any account</h4>
+              <Link to="/sign-up" className={cx("signUp-link")}>Sign Up</Link>
             </div>
           </form>
         </div>
@@ -151,4 +111,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default ShopCreate;
