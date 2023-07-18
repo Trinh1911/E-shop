@@ -1,11 +1,10 @@
 import { React, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import classNames from "classnames/bind";
 import styles from "./SignUp.module.scss";
-import { sever } from "../../Sever";
+import { server } from "../../Server";
 const cx = classNames.bind(styles);
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -14,6 +13,7 @@ const SignUp = () => {
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
   const handleSubmit = async (e) => {
+    e.preventDefault()
     const config = { headers: { "Content-Type": "multipart/form-data" } };
     const newForm = new FormData();
     newForm.append("file", avatar);
@@ -21,7 +21,7 @@ const SignUp = () => {
     newForm.append("email", email);
     newForm.append("password", password);
     axios
-      .post(`${sever}/user/create-user`, newForm, config)
+      .post(`${server}/user/create-user`, newForm, config)
       .then((res) => {
         console.log(res);
       })
@@ -48,12 +48,12 @@ const SignUp = () => {
               <div className={cx("form-login")}>
                 <input
                   className={cx("input-login")}
-                  type="email"
-                  name="email"
-                  autoComplete="email"
+                  type="text"
+                  name="text"
+                  autoComplete="text"
                   required
                   value={name}
-                  placeholder="Type email address"
+                  placeholder="Type My name"
                   onChange={(e) => setName(e.target.value)}
                 ></input>
               </div>
