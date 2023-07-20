@@ -10,15 +10,17 @@ html {
 
 body {
   font-size: 1.6rem;
+  background-color: var(---body-background);
 }
 
 :root {
   ---body-background: #efefef;
+  --base-background: rgb(255 255 255);
+  --footer-background:#2e2100;
   --text-none-active: rgb(128, 128, 137);
   --text-color-active: rgb(37 99 235);
   --background-acive: rgba(0, 96, 255, 0.12);
   --background-none-active: rgba(39, 39, 42, 0.12);
-  --base-background: rgb(255 255 255);
   --text-color-primary: #f0f0f0;
   --text-color-case: rgb(37 99 235);
   --case-background: rgb(59 130 246);

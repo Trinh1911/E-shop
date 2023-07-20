@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GoSearch, GoHome } from "react-icons/go";
 import { MdOutlineInsertEmoticon } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
-import { BsListNested } from "react-icons/bs";
+import { BsListNested, BsList } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import classNames from "classnames/bind";
@@ -17,12 +17,12 @@ import Wishlist from "../Wishlist/Wishlist.jsx";
 const cx = classNames.bind(styles);
 const NavHeaders = [
   {
-    icon: <GoHome/>,
+    icon: <GoHome />,
     title: "Home",
     url: "/",
   },
   {
-    icon: <MdOutlineInsertEmoticon/>,
+    icon: <MdOutlineInsertEmoticon />,
     title: "Becom Seller",
     url: "/shop-create",
   },
@@ -104,30 +104,30 @@ const Header = ({ activeHeading, activeIconHeader }) => {
               <Link
                 to={i.url}
                 className={cx(
-                  `${activeIconHeader === index + 1 ? "header-nav-active" : "header-nav-normal"}`,
+                  `${
+                    activeIconHeader === index + 1
+                      ? "header-nav-active"
+                      : "header-nav-normal"
+                  }`,
                   "link-provide"
                 )}
               >
-                <div className={cx(`${activeIconHeader === index + 1 ? "header-nav-active" : "header-nav-normal"}`)}>{i.icon}</div>
+                <div
+                  className={cx(
+                    `${
+                      activeIconHeader === index + 1
+                        ? "header-nav-active"
+                        : "header-nav-normal"
+                    }`
+                  )}
+                >
+                  {i.icon}
+                </div>
                 {/* <GoHome className={cx("provide-icon")} /> */}
                 <h2>{i.title}</h2>
               </Link>
             ))}
         </div>
-        {/* <Link
-          to="/"
-          className={cx(
-            `${activeIconHeader === index + 1 ? "active" : "normal"}`,
-            "link-provide"
-          )}
-        >
-          <GoHome className={cx("provide-icon")} />
-          <h2>Home</h2>
-        </Link>
-        <Link to="/shop-create" className={cx("link-provide")}>
-          <MdOutlineInsertEmoticon className={cx("provide-icon")} />
-          <h2>Becom Seller</h2>
-        </Link> */}
       </div>
       {/* category */}
       <div
@@ -136,47 +136,56 @@ const Header = ({ activeHeading, activeIconHeader }) => {
           `${active === true ? "header-scroll" : null}`
         )}
       >
-        {/* categories */}
-        <div
-          className={cx("categories")}
-          onClick={() => setDropDown(!dropDown)}
-        >
-          <BsListNested className={cx("categories-icon")} />
-          <h2>All categories</h2>
-          <IoIosArrowDown className={cx("category-drop")} />
-        </div>
-        {dropDown ? (
-          <DropDown categoriesData={categoriesData} setDropDown={setDropDown} />
-        ) : null}
-        {/* navbar */}
-        <div className={cx("Navbar")}>
-          <Navbar active={activeHeading} />
-        </div>
-        <div className={cx("user-using")}>
-          {/* favorite store */}
+        <div className={cx("grid", "wide", "bottom-header-wrap")}>
+          {/* categories */}
           <div
-            className={cx("favorite")}
-            onClick={() => setOpenWishlist(!openWishlist)}
+            className={cx("categories")}
+            onClick={() => setDropDown(!dropDown)}
           >
-            <AiOutlineHeart className={cx("icon")} />
-            <span className={cx("Item-icon")}>0</span>
+            {dropDown ? (
+              <BsListNested className={cx("categories-icon")} />
+            ) : (
+              <BsList className={cx("categories-icon")} />
+            )}
+            <h2>All categories</h2>
+            <IoIosArrowDown className={cx("category-drop")} />
           </div>
-          {/* Cart */}
-          <div className={cx("cart")} onClick={() => setOpen(!open)}>
-            <AiOutlineShoppingCart className={cx("icon")} />
-            <span className={cx("Item-icon")}>0</span>
+          {dropDown ? (
+            <DropDown
+              categoriesData={categoriesData}
+              setDropDown={setDropDown}
+            />
+          ) : null}
+          {/* navbar */}
+          <div className={cx("Navbar")}>
+            <Navbar active={activeHeading} />
           </div>
-          {/* user */}
-          <div className={cx("cart")}>
-            <Link to="/login">
-              <CgProfile className={cx("icon")} />
-            </Link>
+          <div className={cx("user-using")}>
+            {/* favorite store */}
+            <div
+              className={cx("favorite")}
+              onClick={() => setOpenWishlist(!openWishlist)}
+            >
+              <AiOutlineHeart className={cx("icon")} />
+              <span className={cx("Item-icon")}>0</span>
+            </div>
+            {/* Cart */}
+            <div className={cx("cart")} onClick={() => setOpen(!open)}>
+              <AiOutlineShoppingCart className={cx("icon")} />
+              <span className={cx("Item-icon")}>0</span>
+            </div>
+            {/* user */}
+            <div className={cx("cart")}>
+              <Link to="/login">
+                <CgProfile className={cx("icon")} />
+              </Link>
+            </div>
           </div>
+          {/* Cart popup */}
+          {open ? <Cart setOpen={setOpen} /> : null}
+          {/* wishlist popup */}
+          {openWishlist ? <Wishlist setOpenWishlist={setOpenWishlist} /> : null}
         </div>
-        {/* Cart popup */}
-        {open ? <Cart setOpen={setOpen} /> : null}
-        {/* wishlist popup */}
-        {openWishlist ? <Wishlist setOpenWishlist={setOpenWishlist} /> : null}
       </div>
     </div>
   );

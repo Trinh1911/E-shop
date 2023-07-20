@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
     const newForm = new FormData();
-    newForm.append("file", avatar);
+    // newForm.append("file", avatar);
     newForm.append("name", name);
     newForm.append("email", email);
     newForm.append("password", password);
@@ -41,7 +41,7 @@ const SignUp = () => {
         <div className={cx("inner-form")}>
           <form className={cx("form")} onSubmit={handleSubmit}>
             <div>
-              <label className={cx("label-login")} htmlFor="email">
+              <label className={cx("label-login")} htmlFor="name">
                 Fullname
               </label>
               <div className={cx("form-login")}>

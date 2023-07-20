@@ -15,7 +15,7 @@ const CountDown = () => {
     let timeLeft = {};
     if (difference > 0) {
       timeLeft = {
-        hours: Math.floor(difference / (1000 * 60 * 60) % 24),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / (1000 * 60)) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
@@ -27,9 +27,11 @@ const CountDown = () => {
       return null;
     }
     return (
-      <span className={cx("time-sale")}>
-        {timeLeft[interval]} {interval} {""}
-      </span>
+      <>
+        <span className={cx("time-sale")}>
+          {timeLeft[interval]} {interval} {""}
+        </span>
+      </>
     );
   });
   return (
